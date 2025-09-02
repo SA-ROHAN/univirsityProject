@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOD DELIVERY WEBSITE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Roboto Condensed", sans-serif;
+        }
+
+        :root {
+            --lead: #212121;
+            --gold-finger: #F2BD12;
+            --eye-ball: #FFFDF7;
+            --hint-yellow: #FCF1CC;
+            --pure-white: #FFF;
+        }
+
+        body {
+            background: var(--eye-ball);
+        }
+
+        /* BASIC STYLING */
+        a {
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: var(--lead);
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .between {
+            justify-content: space-between;
+        }
+
+        .gap-2 {
+            gap: 2rem;
+        }
+
+        .gap-3 {
+            gap: 3rem;
+        }
+
+        .gap-4 {
+            gap: 4rem;
+        }
+
+        .wrapper {
+            max-width: 1400px;
+            margin: auto;
+            padding-inline: 1.5rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: auto;
+            display: block;
+        }
+
+        .p-top {
+            padding-top: 10rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 4rem;
+        }
+
+        .mt-half {
+            margin-top: .5rem;
+        }
+
+        .m-auto {
+            margin: auto;
+        }
+
+        .mt-one-half {
+            margin-top: 1.5rem;
+        }
+
+        /* HEADER STYLING */
+        .navbar {
+            min-height: 14vh;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--gold-finger)
+        }
+
+        .btn {
+            display: inline-block;
+            padding: .9rem 2rem;
+            background: var(--gold-finger);
+            border-radius: 1rem;
+            font-size: 1.1rem;
+            color: var(--pure-white);
+            box-shadow: rgba(0, 0, 0, 0.1) 0 2px 1px;
+            transition: .3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--lead);
+        }
+
+        .cart-icon {
+            font-size: 1.3rem;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-icon .cart-value {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            font-size: .85rem;
+            width: 20px;
+            aspect-ratio: 1;
+            border-radius: 100vw;
+            background: var(--gold-finger);
+            color: var(--lead);
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .desktop-action .hamburger {
+            font-size: 1.5rem;
+            display: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20rem;
+            padding: 2rem;
+            background: var(--pure-white);
+            border: .1rem solid var(--gold-finger);
+            border-radius: 2rem;
+            box-shadow: rgba(0, 0, 0, 0.05) 8px 8px 8px;
+            flex-direction: column;
+            gap: 2rem;
+            z-index: 100;
+        }
+
+        .mobile-menu-active {
+            display: flex;
+        }
+
+        /* SECTION STYLING */
+        .hero-section {
+            min-height: calc(100vh - 14vh);
+        }
+
+        .content,
+        .image-container,
+        .services-card {
+            flex: 1;
+            flex-basis: 300px;
+        }
+
+        h1 {
+            font-size: 5.6vw;
+            color: var(--lead);
+        }
+
+        h1 span {
+            color: var(--gold-finger);
+        }
+
+        p {
+            font-size: 1.25rem;
+            color: gray;
+            line-height: 1.8rem;
+            font-weight: 400;
+        }
+
+        .para {
+            margin-block: 2rem;
+            max-width: 550px;
+        }
+
+        .social-icon {
+            background: var(--hint-yellow);
+            width: 3rem;
+            aspect-ratio: 1;
+            border-radius: 1rem;
+            font-size: 1.2rem;
+            text-align: center;
+            line-height: 3rem;
+            box-shadow: rgba(0, 0, 0, 0.1) 0 2px 1px;
+            transition: .3s ease-in-out;
+        }
+
+        .social-icon:hover {
+            background: var(--lead);
+            color: var(--pure-white);
+        }
+
+        /* section 01 */
+        h5 {
+            font-size: 1.2rem;
+            letter-spacing: .2rem;
+            color: var(--gold-finger);
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 3.7rem;
+            text-transform: capitalize;
+            color: var(--lead);
+        }
+
+        h3 {
+            font-size: 2rem;
+            text-transform: capitalize;
+            color: var(--lead);
+        }
+
+        .services-card h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* section 02 */
+        .card-list {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .order-card {
+            flex: 1;
+            flex-basis: 300px;
+            background: var(--pure-white);
+            padding: 2rem;
+            border: .1rem solid var(--gold-finger);
+            border-radius: 2rem;
+            box-shadow: rgba(0, 0, 0, 0.05) 8px 8px 8px;
+            transition: all .5s ease-in-out;
+            max-width: 350px;
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+            box-shadow: rgba(0, 0, 0, 0.15) 8px 15px 25px;
+        }
+
+        .card-image img {
+            width: 15rem;
+            filter: drop-shadow(rgba(0, 0, 0, 0.2) 0 10px 10px);
+        }
+
+        h4 {
+            font-size: 1.8rem;
+            color: var(--lead);
+        }
+
+        .order-card .price {
+            font-size: 1.7rem;
+            color: var(--gold-finger);
+            padding: 1.3rem 0 2rem 0;
+        }
+
+        /* CART TAB STYLING */
+        .cart-tab {
+            background: var(--hint-yellow);
+            position: fixed;
+            inset: 0 0 0 100%;
+            width: 25rem;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            z-index: 99;
+            box-shadow: rgba(0, 0, 0, 0.1) -10px -10px 20px;
+            transition: .3s ease-in-out;
+        }
+
+        .cart-tab-active {
+            inset: 0 0 0 auto;
+        }
+
+        .cart-list {
+            flex: 1;
+            width: 100%;
+            margin-top: 1.5rem;
+            overflow: auto;
+            max-height: 400px;
+        }
+
+        .cart-list::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .total-container {
+            width: 100%;
+            background: var(--gold-finger);
+            text-align: center;
+            margin-block: 1rem;
+            padding-block: 1rem;
+        }
+
+        .total-container h4 {
+            display: inline-block;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-container .btn {
+            background: var(--lead);
+            transition: .3s ease-in-out;
+            flex: 1;
+            text-align: center;
+        }
+
+        .btn-container .close-btn:hover {
+            background: #dc3545;
+        }
+
+        .btn-container .btn:hover {
+            background: var(--gold-finger);
+            color: var(--lead);
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: .7rem 1rem;
+            transition: all .5s ease-in-out;
+        }
+
+        .item.slide-out {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        .cart-list .item:nth-child(even) {
+            background: var(--eye-ball);
+        }
+
+        .item-image img {
+            width: 4rem;
+        }
+
+        .item-details h4 {
+            font-size: 1.2rem;
+        }
+
+        .item-total {
+            font-weight: 400;
+            margin-top: .3rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quantity-btn {
+            background: var(--lead);
+            color: var(--pure-white);
+            width: 1.7rem;
+            aspect-ratio: 1;
+            border-radius: 100vw;
+            text-align: center;
+            line-height: 1.7rem;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .quantity-btn:hover {
+            background: var(--gold-finger);
+            color: var(--lead);
+        }
+
+        .quantity-value {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-inline: .6rem;
+        }
+
+        /* section 03 */
+        .review-container {
+            width: 650px;
+            max-width: 100%;
+            flex: 1;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .profile {
+            width: 4rem;
+            aspect-ratio: 1;
+            border-radius: 100vw;
+            overflow: hidden;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fa-star {
+            color: var(--gold-finger);
+        }
+
+        .arrow {
+            width: 2.5rem;
+            aspect-ratio: 1;
+            border-radius: 100vw;
+            background: var(--gold-finger);
+            text-align: center;
+            line-height: 2.5rem;
+            cursor: pointer;
+        }
+
+        /* SECTION 4 */
+        .app-container {
+            background: var(--hint-yellow);
+            padding: 3rem 6rem;
+            border-radius: 3rem;
+        }
+
+        .app-container .content h2 {
+            font-size: 4.5rem;
+        }
+
+        .app-container .image-container img {
+            width: 25rem;
+        }
+
+        /* SECTION 05 */
+        .input-container {
+            width: 43rem;
+            max-width: 100%;
+            background: var(--pure-white);
+            padding: .8rem;
+            box-shadow: rgba(0, 0, 0, 0.2) 0 5px 8px;
+            border-radius: 1rem;
+            margin: 4rem auto 0 auto;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            height: 6.5vh;
+            background: transparent;
+            border: none;
+            font-size: 1.1rem;
+            padding-left: 1rem;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+        }
+
+        /* FOOTER STYLING */
+        .footer-container {
+            margin-top: 10rem;
+            padding-block: 4rem;
+            background: var(--hint-yellow);
+        }
+
+        .footer-container .flex {
+            align-items: flex-start;
+        }
+
+        .footer-wrapper {
+            flex: 1;
+            flex-basis: 150px;
+        }
+
+        .footer-wrapper:nth-child(1) {
+            flex: 2;
+            flex-basis: 300px;
+        }
+
+        .footer-wrapper .social-icon {
+            background: var(--pure-white);
+        }
+
+        .footer-wrapper .social-icon:hover {
+            background: var(--lead);
+            color: var(--pure-white);
+        }
+
+        .footer-link {
+            color: grey;
+            font-size: 1.1rem;
+            transition: .3s ease-in-out;
+        }
+
+        .footer-link:hover {
+            color: var(--lead);
+        }
+
+        /* MEDIA QUERIES */
+        @media screen and (max-width: 780px) {
+
+
+            .navlist,
+            .desktop-action .btn {
+                display: none;
+            }
+
+            .desktop-action .hamburger {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                width: 20rem;
+                padding: 2rem;
+                background: var(--pure-white);
+                border: .1rem solid var(--gold-finger);
+                border-radius: 2rem;
+                box-shadow: rgba(0, 0, 0, 0.05) 8px 8px 8px;
+                transition: all .5s ease-in-out;
+                z-index: 100;
+            }
+
+            .mobile-menu-active {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            h1 {
+                font-size: 3.6rem;
+            }
+
+            .content {
+                padding-top: 3rem;
+            }
+
+            .gap-2 {
+                gap: 1.4rem;
+            }
+
+            .gap-4 {
+                gap: 4rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+            }
+
+            .app-container {
+                padding: 2.2rem;
+            }
+
+            .app-container .content h2 {
+                font-size: 3.5rem;
+            }
+
+            .cart-tab {
+                width: 100%;
+                max-width: 20rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- HEADER part -->
+    <header>
+        <nav class="navbar flex between wrapper">
+            <a href="#" class="logo">Foodie,</a>
+
+            <!-- DESKTOP MENU -->
+            <ul class="navlist flex gap-3">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+
+            <div class="desktop-action flex gap-2">
+                <a href="#" class="cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-value">0</span>
+                </a>
+
+                <a href="#" class="btn">
+                    Sign in
+                    &nbsp;
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+
+                <a href="#" class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </div>
+
+            <!-- MOBILE MENU -->
+            <ul class="mobile-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li>
+                    <a href="#" class="btn">
+                        Sign in
+                        &nbsp;
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECTIONS PART -->
+    <main>
+        <section>
+            <div class="hero-section flex wrapper gap-4">
+                <div class="content">
+                    <h1>
+                        Enjoy Your Delicious
+                        <span>Food</span>
+                    </h1>
+                    <p class="para">
+                        WE WILL FILL YOUR TUMMY WITH DELICIOUS FOOD WITH FAST DELIVERY
+                    </p>
+                    <div class="flex gap-2">
+                        <a href="#" class="btn">Order now</a>
+                        <a href="#" class="social-icon">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa-brands fa-google-plus-g"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="image-container">
+                    <img src="images/delivery-boy-with-phone.png" alt="Delivery Boy">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrapper p-top">
+                <div class="text-center">
+                    <h5>Our Services</h5>
+                    <h2>How does it work ?</h2>
+                </div>
+                <div class="flex text-center mt-4 gap-4">
+                    <div class="services-card">
+                        <div class="image-container">
+                            <img src="images/fast-delivery.png" alt="Easy to order">
+                        </div>
+                        <h3>Easy to order</h3>
+                        <p>You only need a few steps in ordering food.</p>
+                    </div>
+
+                    <div class="services-card">
+                        <div class="image-container">
+                            <img src="images/easy-to-order.png" alt="Fast delivery">
+                        </div>
+                        <h3>Fast delivery</h3>
+                        <p>Delivery that is always on time, even faster.</p>
+                    </div>
+
+                    <div class="services-card">
+                        <div class="image-container">
+                            <img src="images/best-quality.png" alt="Best Quality">
+                        </div>
+                        <h3>Best Quality</h3>
+                        <p>Not only fast, but our quality is also number one.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrapper p-top">
+                <div class="text-center">
+                    <h5>Our Menu</h5>
+                    <h2>The Most Popular</h2>
+                </div>
+
+                <div id="cardList" class="card-list text-center mt-4">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CART TAB -->
+        <div class="cart-tab" id="cartTab">
+            <h3>Your Cart</h3>
+            <div class="cart-list" id="cartList">
+                <!-- Cart items will appear here -->
+            </div>
+            <div class="total-container">
+                <h4>Total: <span class="cart-total">৳0.00</span></h4>
+            </div>
+            <div class="btn-container">
+                <a href="#" class="btn close-btn">Close</a>
+                <a href="#" class="btn">Check Out</a>
+            </div>
+        </div>
+
+        <section>
+            <div class="wrapper p-top flex gap-3">
+                <div class="image-container">
+                    <img src="images/delivery-boy-with-phone.png" alt="Delivery boy with phone">
+                </div>
+
+                <div class="review-container">
+                    <h5>Our reviews</h5>
+                    <h2>What they say?</h2>
+
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper mt-4">
+                            <div class="swiper-slide">
+                                <div class="flex gap-2">
+                                    <div class="profile">
+                                        <img src="images/profile1.jpeg" alt="Profile">
+                                    </div>
+                                    <div>
+                                        <h4>Guy Hawking</h4>
+                                        <div class="mt-half">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="para">
+                                    Foodie is the best. Besides the many delicious options, the service is also very
+                                    good, especially fast delivery. I highly recommend Foodie to you.
+                                </p>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flex gap-2">
+                                    <div class="profile">
+                                        <img src="images/profile2.jpeg" alt="Profile">
+                                    </div>
+                                    <div>
+                                        <h4>Sophia Anderson</h4>
+                                        <div class="mt-half">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="para">
+                                    Fresh ingredients, creative menu, and warm service make this spot a hidden gem.
+                                    Perfect for casual dinners or special nights out. Truly a foodie's paradise.
+                                </p>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flex gap-2">
+                                    <div class="profile">
+                                        <img src="images/profile3.jpeg" alt="Profile">
+                                    </div>
+                                    <div>
+                                        <h4>Olivia Smith</h4>
+                                        <div class="mt-half">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="para">
+                                    Delicious dishes, cozy ambiance, and exceptional service. A must-visit for
+                                    food lovers seeking bold flavors and unforgettable dining experiences.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex between">
+                            <a href="#" class="arrow" id="prev">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </a>
+                            <a href="#" class="arrow" id="next">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrapper p-top">
+                <div class="app-container flex between">
+                    <div class="image-container">
+                        <img src="images/mobile-app.png" alt="Mobile app">
+                    </div>
+                    <div class="content">
+                        <h5>Our Application</h5>
+                        <h2>Simple Way to <br> Order Your Food</h2>
+                        <p class="para">
+                            Discover food wherever and whenever and get your food delivery quickly.
+                        </p>
+                        <a href="#" class="btn">Get the App</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="wrapper p-top">
+                <div class="text-center">
+                    <h5>Our subscribe</h5>
+                    <h2>Subscribe to Our Newsletter</h2>
+                    <p class="para m-auto">
+                        We recommend you to subscribe to our newsletter. Drop your email below to get daily updates
+                        about us.
+                    </p>
+
+                    <label class="input-container flex">
+                        <input type="email" name="email" id="email" placeholder="Enter your email address"
+                            autocomplete="off">
+                        <a href="#" class="btn">Subscribe</a>
+                    </label>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER PART -->
+    <footer>
+        <div class="footer-container">
+            <div class="flex wrapper gap-4">
+                <div class="footer-wrapper">
+                    <a href="#" class="logo">Foodie.</a>
+                    <p class="mt-one-half">
+                        WE WILL FILL YOUR TUMMY WITH DELICIOUS FOOD WITH FAST DELIVERY
+                    </p>
+                    <div class="flex gap-2 mt-one-half">
+                        <a href="#" class="social-icon">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fa-brands fa-google-plus-g"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <ul class="footer-wrapper">
+                    <li>
+                        <h4>Our Menu</h4>
+                    </li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Special</a></li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Popular</a></li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Category</a></li>
+                </ul>
+
+                <ul class="footer-wrapper">
+                    <li>
+                        <h4>Company</h4>
+                    </li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Why foodie</a></li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Partner with us</a></li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">About us</a></li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">FAQ</a></li>
+                </ul>
+
+                <ul class="footer-wrapper">
+                    <li>
+                        <h4>Support</h4>
+                    </li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Account</a></li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Support Contacts</a></li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Feedback</a></li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            navigation: {
+                nextEl: "#next",
+                prevEl: "#prev",
+            },
+        });
+
+        // DOM Elements
+        const cartIcon = document.querySelector('.cart-icon');
+        const cartTab = document.querySelector('.cart-tab');
+        const closeBtn = document.querySelector('.close-btn');
+        const cardList = document.querySelector('#cardList');
+        const cartList = document.querySelector('#cartList');
+        const cartTotal = document.querySelector('.cart-total');
+        const cartValue = document.querySelector('.cart-value');
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const bars = document.querySelector('.fa-bars');
+
+        // Event Listeners
+        cartIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartTab.classList.add('cart-tab-active');
+        });
+
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartTab.classList.remove('cart-tab-active');
+        });
+
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
+            mobileMenu.classList.toggle('mobile-menu-active');
+            bars.classList.toggle('fa-xmark');
+        });
+
+        // Product Data
+        let productList = [
+            {
+                "id": 1,
+                "name": "Double Beef Burger",
+                "price": "৳9.67",
+                "image": "images/burger.png"
+            },
+            {
+                "id": 2,
+                "name": "Veggie Pizza",
+                "price": "৳10.99",
+                "image": "images/pizza.png"
+            },
+            {
+                "id": 3,
+                "name": "Fried Chicken",
+                "price": "৳13.45",
+                "image": "images/fried-chicken.png"
+            },
+            {
+                "id": 4,
+                "name": "Chicken Roll",
+                "price": "৳7.50",
+                "image": "images/chicken-roll.png"
+            },
+            {
+                "id": 5,
+                "name": "Sub Sandwich",
+                "price": "৳6.99",
+                "image": "images/sandwich.png"
+            },
+            {
+                "id": 6,
+                "name": "Chicken Lasagna",
+                "price": "৳16.99",
+                "image": "images/lasagna.png"
+            },
+            {
+                "id": 7,
+                "name": "Italian Spaghetti",
+                "price": "৳7.65",
+                "image": "images/spaghetti.png"
+            },
+            {
+                "id": 8,
+                "name": "Spring Roll",
+                "price": "৳9.31",
+                "image": "images/spring-roll.png"
+            }
+        ];
+
+        let cartProducts = [];
+        console.log("connect main");
+
+        cartIcon.addEventListener('click', () => cartTab.classList.add('cart-tab-active'));
+        closeBtn.addEventListener('click', () => cartTab.classList.remove('cart-tab-active'));
+        hamburger.addEventListener('click', () => mobileMenu.classList.toggle('mobile-menu-active'));
+        hamburger.addEventListener('click', () => bars.classList.toggle('fa-xmark'));
+
+        // Update totals function
+        const updateTotals = () => {
+            let totalPrice = 0;
+            let totalQuantity = 0;
+
+            document.querySelectorAll('.item').forEach(item => {
+                const quantity = parseInt(item.querySelector('.quantity-value').textContent);
+                const priceText = item.querySelector('.item-total').textContent.replace("", '');
+                const price = parseFloat(priceText);
+
+                totalPrice += price;
+                totalQuantity += quantity;
+            });
+
+            cartTotal.textContent = `${totalPrice.toFixed(2)}`;
+            cartValue.textContent = totalQuantity;
+        };
+
+        // Show product cards
+        const showCards = () => {
+            cardList.innerHTML = '';
+
+            productList.forEach(product => {
+                const orderCard = document.createElement('div');
+                orderCard.classList.add('order-card');
+
+                orderCard.innerHTML = `
+                    <div class="card-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <h4>${product.name}</h4>
+                    <h4 class="price">${product.price}</h4>
+                    <a href="#" class="btn add-to-cart-btn">Add to cart</a>
+                `;
+
+                cardList.appendChild(orderCard);
+
+                const addToCartBtn = orderCard.querySelector('.add-to-cart-btn');
+                addToCartBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    addToCart(product);
+                });
+            });
+        };
+
+        // Add to cart function
+        const addToCart = (product) => {
+            const existingProduct = cartProducts.find(item => item.id === product.id);
+
+            if (existingProduct) {
+                alert('Item already in your cart!');
+                return;
+            }
+
+            cartProducts.push({ ...product, quantity: 1 });
+            renderCartItem(product);
+            updateTotals();
+        };
+
+        // Render cart item
+        const renderCartItem = (product) => {
+            let quantity = 1;
+            const price = parseFloat(product.price.replace('', ''));
+
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('item');
+            cartItem.setAttribute('data-id', product.id);
+
+            cartItem.innerHTML = `
+                <div class="item-image">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="item-details">
+                    <h4>${product.name}</h4>
+                    <h4 class="item-total">${(price * quantity).toFixed(2)}</h4>
+                </div>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <h4 class="quantity-value">${quantity}</h4>
+                    <button class="quantity-btn plus">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            `;
+
+            cartList.appendChild(cartItem);
+
+            const plusBtn = cartItem.querySelector('.plus');
+            const minusBtn = cartItem.querySelector('.minus');
+            const quantityValue = cartItem.querySelector('.quantity-value');
+            const itemTotal = cartItem.querySelector('.item-total');
+
+            plusBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                quantity++;
+                quantityValue.textContent = quantity;
+                itemTotal.textContent = `${(price * quantity).toFixed(2)}`;
+
+                // Update cart products array
+                const cartProduct = cartProducts.find(item => item.id === product.id);
+                if (cartProduct) {
+                    cartProduct.quantity = quantity;
+                }
+
+                updateTotals();
+            });
+
+            minusBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (quantity > 1) {
+                    quantity--;
+                    quantityValue.textContent = quantity;
+                    itemTotal.textContent = `${(price * quantity).toFixed(2)}`;
+
+                    // Update cart products array
+                    const cartProduct = cartProducts.find(item => item.id === product.id);
+                    if (cartProduct) {
+                        cartProduct.quantity = quantity;
+                    }
+
+                    updateTotals();
+                } else {
+                    cartItem.classList.add('slide-out');
+
+                    setTimeout(() => {
+                        cartItem.remove();
+                        cartProducts = cartProducts.filter(item => item.id !== product.id);
+                        updateTotals();
+                    }, 300);
+                }
+            });
+        };
+
+        // Newsletter subscription
+        const subscribeBtn = document.querySelector('.input-container .btn');
+        const emailInput = document.querySelector('#email');
+
+        subscribeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = emailInput.value.trim();
+
+            if (email && email.includes('@')) {
+                alert('Thank you for subscribing to our newsletter!');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+
+        // Initialize app
+        const initApp = () => {
+            showCards();
+        };
+
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+
+</html>
